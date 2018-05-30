@@ -1,0 +1,5 @@
+{
+  "var_source_ami": "ami-916f59f4",
+  "var_ami_name": "Built_By_packer"
+}
+

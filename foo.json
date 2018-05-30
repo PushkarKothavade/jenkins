@@ -1,0 +1,24 @@
+{
+  "description": "Packer template to build ubuntu-16.04 based Nginx web server AWS AMI",
+  "variables": {
+    "var_source_ami": "",
+    "var_ami_name": ""
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-east-2",
+      "source_ami": "{{user `var_source_ami`}}",
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "ami_name": "{{user `var_ami_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "setup.sh"
+    }
+  ]
+}
+

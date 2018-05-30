@@ -1,11 +1,11 @@
 pipeline {
     agent any 
     stages {
-        stage('Build local image from shared Capgemini base image') {
+        stage('Local Image Build') {
             steps {
+	        echo 'Build local image from shared Capgemini base image'
 	        sh '''
-		    echo 'Multiline'
-		    echo 'Example'
+		    packer build -var-file=foo_variables.json foo.json 
 	        '''
             }
         }
