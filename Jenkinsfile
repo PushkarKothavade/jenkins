@@ -8,6 +8,11 @@ pipeline {
         string(name: 'key_arn', defaultValue: 'arn:aws:kms:us-east-2:576660391185:key/b1fbead7-05c8-4788-a1e6-f1aa77cb26a0', description: 'Specify AWS key arn')
     }
     stages {
+        stage ('clean workspace'){
+            steps {
+                deleteDir()
+            }
+        }
         stage('Local Image Build') {
             steps {
 	        echo 'Build local image from shared Capgemini base image'
