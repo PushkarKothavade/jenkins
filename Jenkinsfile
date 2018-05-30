@@ -17,7 +17,7 @@ pipeline {
             steps {
 	        echo 'Build local image from shared Capgemini base image'
 	        sh '''
-		    "packer build -var \`var_source_ami=${env.ami_id}\` -var \`var_ami_name=${env.new_image_name}\` foo.json" 
+		    "packer build -var \'var_source_ami=${env.ami_id}\' -var \'var_ami_name=${env.new_image_name}\' foo.json" 
 	        '''
             }
         }
