@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Build local image from shared Capgemini base image') {
             steps {
-                echo 'Build local image from shared Capgemini base image' 
-		ls -la
+	        sh '''
+		    echo 'Multiline'
+		    echo 'Example'
+	        '''
             }
         }
     }
