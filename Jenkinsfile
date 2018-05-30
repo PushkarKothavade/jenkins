@@ -1,9 +1,11 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('Build local image from shared Capgemini base image') {
             steps {
-                echo 'Hello world again!' 
+                echo 'Build local image from shared Capgemini base image' 
+		script {
+		    ls -la
             }
         }
     }
