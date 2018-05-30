@@ -12,15 +12,7 @@ pipeline {
             steps {
 	        echo 'Build local image from shared Capgemini base image'
 	        sh '''
-		    packer build -var-file=foo_variables.json foo.json 
-	        '''
-            }
-        }
-        stage('Image with Encrypted Volumes') {
-            steps {
-	        echo 'Create Image with encrypted volumes'
-	        sh '''
-		    aws ec2 copy-image --source-region ${params.ami_id} 
+		    packer build -var '${params.ami_id}' -var '${params.new_image_name}' foo.json 
 	        '''
             }
         }
