@@ -21,6 +21,7 @@ pipeline {
 		    #packer build -var '"'"'var_source_ami=params.ami_id'"'"' -var '"'"'var_ami_name=params.new_image_name'"'"' foo.json
 		    packer build -var 'var_source_ami=${params.ami_id}' -var 'var_ami_name=${params.new_image_name}' foo.json
 	        '''
+		shell("packer")
             }
         }
     }
