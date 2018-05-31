@@ -16,7 +16,7 @@ pipeline {
         stage('Local Image Build') {
             steps {
 	        echo 'Build local image from shared Capgemini base image'
-	        sh '''
+	        bash '''
                     #!/bin/bash
 		    packer build -var '"'"'var_source_ami=params.ami_id'"'"' -var '"'"'var_ami_name=params.new_image_name'"'"' foo.json
 	        '''
