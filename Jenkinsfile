@@ -17,7 +17,8 @@ pipeline {
             steps {
 	        echo 'Build local image from shared Capgemini base image'
 		script {
-		    sh "build_ami.sh ${params.ami_id} ${params.new_image_name}"
+		    sh "chmod a+x build_ami.sh"
+		    sh "./build_ami.sh ${params.ami_id} ${params.new_image_name}"
 		}
             }
         }
