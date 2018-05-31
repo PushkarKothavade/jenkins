@@ -16,7 +16,10 @@ pipeline {
         stage('Local Image Build') {
             steps {
 	        echo 'Build local image from shared Capgemini base image'
-		sh "build_ami.sh ${params.ami_id} ${params.new_image_name}"
+		script {
+		    sh "build/build_ami.sh ${params.ami_id} ${params.new_image_name}"
+		    sh "build_ami.sh ${params.ami_id} ${params.new_image_name}"
+		}
             }
         }
     }
